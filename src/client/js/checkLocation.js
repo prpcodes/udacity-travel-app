@@ -1,6 +1,7 @@
 function checkForm(inputText) {
   console.log("::: Running checkForName :::", inputText);
-  var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+  var urlRegex = /([-A-Z0-9&%,.;'])/gi;
+  encodeURIComponent(urlRegex);
 
   if (urlRegex.test(inputText)) {
     console.log("URL test Successful!");

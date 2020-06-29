@@ -1,9 +1,9 @@
 // Declare Variables
 const projectData = {};
-const PORT = 3000;
-const apiKey = `pduoebsi1`;
+const PORT = 8081;
+const geoApiKey = `pduoebsi1`;
+const geoApiURL = `http://api.geonames.org/searchJSON?q=${location}&maxRows=10&username=`;
 let location = "";
-const locationArr = {};
 
 // Require Express to run server and routes
 const express = require("express");
@@ -25,31 +25,6 @@ app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static("dist"));
-
-// location form input endpoint
-app.post("/location", function (req, res) {
-  var location = req.body;
-  console.log(location);
-  locationArr.push(location);
-  res.send("Location added!");
-});
-
-// GET Request - return data stored in projectData
-app.get("/form", getData);
-
-function getData(req, res) {
-  res.send(projectData);
-}
-
-// POST Request - add incoming data to projectData
-app.post("/add", callBack);
-
-function callBack(req, res) {
-  projectData["temp"] = req.body.temp;
-  projectData["date"] = req.body.date;
-  projectData["content"] = req.body.content;
-  res.send(projectData);
-}
 
 // Setup Server
 const server = app.listen(PORT, () => {
