@@ -1,6 +1,9 @@
 // Declare Variables
 const projectData = {};
 const PORT = 3000;
+const apiKey = `pduoebsi1`;
+let location = "";
+const locationArr = {};
 
 // Require Express to run server and routes
 const express = require("express");
@@ -23,8 +26,16 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static("dist"));
 
+// location form input endpoint
+app.post("/location", function (req, res) {
+  var location = req.body;
+  console.log(location);
+  locationArr.push(location);
+  res.send("Location added!");
+});
+
 // GET Request - return data stored in projectData
-app.get("/all", getData);
+app.get("/form", getData);
 
 function getData(req, res) {
   res.send(projectData);
