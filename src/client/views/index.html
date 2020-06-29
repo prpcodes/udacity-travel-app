@@ -14,7 +14,18 @@
         Travel Planner
       </section>
       <section class="new-trip">
-        <input type="text" id="location" name="location" />
+        <input
+          type="text"
+          id="departure"
+          name="departure"
+          placeholder="01.01.2020"
+        />
+        <input
+          type="text"
+          id="location"
+          name="location"
+          placeholder="New York"
+        />
         <button id="generate" type="submit">next trip</button>
       </section>
       <section class="saved-trip">
@@ -23,8 +34,8 @@
           alt="random image from your destination"
         />
         <div id="info">
-          <h2 id="name">My Trip To: Ireland</h2>
-          <h2 id="date">Departing: 2nd June 2020</h2>
+          <h2 id="name">My Trip To: <span id="city"></span></h2>
+          <h2 id="date">Departing: <span id="departing"></span></h2>
           <div id="flight">
             <h3>Weather:</h3>
             <p>
@@ -34,6 +45,6 @@
         </div>
       </section>
     </section>
-    <script src="app.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>
   </body>
 </html>
