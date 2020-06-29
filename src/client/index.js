@@ -1,28 +1,25 @@
 import "./styles/style.scss";
 
 /* Global Variables */
-const baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
-let zipCode = "10001";
-const apiPrefix = "&appid=";
-const apiUnits = "&units=imperial";
-const apiKey = `${apiPrefix}ef4e3b78548a4d6a518f96e68460622f${apiUnits}`;
-
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth()(+1) + "." + d.getDate() + "." + d.getFullYear();
-console.log(newDate);
-
-function getNewDate(params) {
-  let d = new Date();
-  let newDate = d.getMonth()(+1) + "." + d.getDate() + "." + d.getFullYear();
-  return newDate;
-  console.log(newDate);
-}
+let location = "";
 
 // addEventListener
-document.getElementById("generate").addEventListener("click", performAction);
+document.getElementById("generate").addEventListener("click", getFormData);
 
-// POST
+function getFormData() {
+  console.log("click");
+  // get location data from document
+  const location = document.getElementById("location").value;
+  const departure = document.getElementById("departure").value;
+  const apiURL = `http://api.geonames.org/searchJSON?q=${location}&maxRows=10&username=`;
+
+  //update Ui - TODO: Add after Weather Update
+  document.getElementById("city").innerHTML = location;
+  document.getElementById("departing").innerHTML = departure;
+}
+
+/*
+// POST TODO
 const postData = async (url = "", data = {}) => {
   console.log(data);
   const response = await fetch(url, {
@@ -45,18 +42,15 @@ const postData = async (url = "", data = {}) => {
     console.log("error", error);
   }
 };
+*/
 
 function performAction(e) {
-  // get zip data from document
-  const zipCode = document.getElementById("zip").value;
-  // get feelings data from document
-  const content = document.getElementById("feelings").value;
-
   //call fetch function
-  getEntrys(baseURL, zipCode, apiKey)
+  getEntrys(apiURL)
     //post everything to server.js
     .then(function (data) {
-      postData("/add", { temp: data.main.temp, date: newDate, content });
+      postData("/add", { lat: geonames.lat, long: geonames.long });
+      console.log(lat, long);
 
       //call updateUI function to add data to the UI
       updateUi();
@@ -64,8 +58,8 @@ function performAction(e) {
 }
 
 //make API call to get JSON data
-const getEntrys = async (baseURL, zipCode, apiKey) => {
-  const res = await fetch(baseURL + zipCode + apiKey);
+const getEntrys = async (apiURL) => {
+  const res = await fetch(apiURL);
   try {
     const data = await res.json();
     return data;
@@ -75,6 +69,7 @@ const getEntrys = async (baseURL, zipCode, apiKey) => {
   }
 };
 
+/* TODO
 const updateUi = async () => {
   const request = await fetch("/all");
   try {
@@ -88,3 +83,4 @@ const updateUi = async () => {
     console.log("error", error);
   }
 };
+*/
