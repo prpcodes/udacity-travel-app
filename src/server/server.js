@@ -1,9 +1,8 @@
 // Declare Variables
-const projectData = {};
+const location = {};
 const PORT = 8081;
 const geoApiKey = `pduoebsi1`;
 const geoApiURL = `http://api.geonames.org/searchJSON?q=${location}&maxRows=10&username=`;
-let location = "";
 
 // Require Express to run server and routes
 const express = require("express");
@@ -25,6 +24,11 @@ app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static("dist"));
+
+// Access the parse results as request.body
+app.post("/geoHandler", function (req, res) {
+  console.log(req.body.data.location);
+});
 
 // Setup Server
 const server = app.listen(PORT, () => {
