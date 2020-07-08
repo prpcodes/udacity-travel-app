@@ -10,37 +10,30 @@
   </head>
   <body>
     <div id="app">
-      <div class="holder headline">
-        Weather Journal App
-      </div>
-      <div class="holder zip">
-        <label for="zip">Enter City here</label>
-        <input type="text" id="zip" placeholder="enter city here" />
-        <label for="zip">Enter Date here</label>
-        <input type="text" id="date" placeholder="enter date here" />
-      </div>
-      <br />
-      <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="Enter your feelings here"
-          rows="5"
-          cols="50"
-        ></textarea>
-        <button id="generate" type="submit">Generate</button>
-      </div>
-      <h2 id="lng"></h2>
-      <h2 id="lat"></h2>
-      <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
-          <p id="countdown"></p>
-          <p id="destination"></p>
-          <div id="content"></div>
+      <h1 class="holder headline">
+        Travely
+      </h1>
+      <section class="interaction">
+        <div class="form" id="form">
+          <label for="zip">Enter City</label>
+          <input type="text" id="zip" placeholder="New York" />
+          <label for="date">Enter Date</label>
+          <input type="text" id="date" placeholder="YYYY-MM-DD" />
+          <button id="generate" type="submit">Generate</button>
         </div>
-      </div>
+        <div id="entryHolder"></div>
+      </section>
     </div>
+    <!--
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+    -->
   </body>
 </html>
