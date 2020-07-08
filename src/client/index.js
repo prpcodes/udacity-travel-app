@@ -1,11 +1,12 @@
 import { formHandler } from "./js/formHandler";
 import { postData } from "./js/postData";
 import { updateUi } from "./js/updateUi";
-import { geoApi } from "./js/geoApi";
+import { getData } from "./js/getData";
+import { safeData } from "./js/safeData";
+
+import "./styles/style.scss";
 
 // addEventListener for "click" on button "generate"
 document.getElementById("generate").addEventListener("click", formHandler);
 
-import "./styles/style.scss";
-
-export { formHandler, postData, updateUi, geoApi };
+export { formHandler, updateUi, getData, safeData, postData };
