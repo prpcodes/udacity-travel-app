@@ -1,26 +1,40 @@
 /* Global Variables */
 
 //http://api.geonames.org/searchJSON?q=Vienna&maxRows=10&username=pduoebsi1
-const baseURL = "http://api.geonames.org/searchJSON?q=";
-let cityName = "";
+const geoURL = "http://api.geonames.org/searchJSON?q=";
 const apiKey = "&maxRows=10&username=pduoebsi1";
-let countdown = 0;
 
-// get form Input and call API-Function with the Input
+// get form Input
+
+//call API-Function with the Input
+
 function formHandler() {
-  // get zip data from document
-  const cityName = document.getElementById("zip").value;
-  //call API function
-  Client.geoApi(baseURL, cityName, apiKey)
-    //post everything to server.js
-    .then(function (data) {
-      Client.postData("/add", {
+  let cityName = document.getElementById("zip").value;
+  let departure = document.getElementById("date").value;
+
+  let countDownDate = Date.parse(departure);
+  // Get today's date and time
+  let now = new Date().getTime();
+  // Find the distance between now and the count down date
+  let distance = countDownDate - now;
+  // Time calculations for days, hours, minutes and seconds
+  let daysUntil = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //get data from API and save it to the server at /data
+  Client.safeData(geoURL, cityName, apiKey)
+    .then((data) => {
+      //save data rout
+      Client.postData("http://localhost:8081/data", {
+        name: data.geonames[0].name,
         lat: data.geonames[0].lat,
         lng: data.geonames[0].lng,
+        countryCode: data.geonames[0].countryCode,
+        departure: departure,
+        daysUntil: daysUntil,
       });
-
-      //call updateUI function to add data to the UI
-      Client.updateUi(cityName);
+    })
+    //then, after all the work on the sever, get the data back for the frontend
+    .then(() => {
+      Client.getData();
     });
 }
 
