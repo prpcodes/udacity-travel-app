@@ -1,5 +1,4 @@
 // Declare Variables
-let geoData = {};
 const PORT = 8081;
 
 // Require Express to run server and routes
@@ -15,8 +14,6 @@ app.use(bodyParser.json());
 // Cors for cross origin allowance
 const cors = require("cors");
 app.use(cors());
-
-const fetch = require("node-fetch");
 
 // Initialize the main project folder
 app.use(express.static("dist"));
