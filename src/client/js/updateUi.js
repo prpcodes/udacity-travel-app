@@ -1,18 +1,17 @@
-const updateUi = (result) => {
-  const content = document.getElementById("entryHolder");
+const updateUi = (geoData) => {
+  const content = document.getElementById("title");
 
   content.insertAdjacentHTML(
-    "afterbegin",
+    "afterend",
     `
-      <h2 class="title">Your Next Trip</h2>
       <div id="content">
         <div id="content-text">
-          <h3 id="destination">Destination: ${result.name}</h3>
-          <p id="countdown">Days Until: ${result.daysUntil}</p>
-          <p id="current-weather">Current Weather: ${result.currentTemp} C° <img id="icon" src="https://www.weatherbit.io/static/img/icons/${result.weatherIcon}.png" alt="weather icon"/></p>
+          <h3 id="destination">Destination: ${geoData.name}</h3>
+          <p id="countdown">Days Until: ${geoData.daysUntil}</p>
+          <p id="current-weather">Current Weather: ${geoData.currentTemp} C° <img id="icon" src="https://www.weatherbit.io/static/img/icons/${geoData.weatherIcon}.png" alt="weather icon"/></p>
         </div>
-        <img id="city-image" src=${result.image} alt="image of your destination"/>
-      <div>
+        <img id="city-image" src=${geoData.image} alt="image of your destination"/>
+      </div>
     `
   );
 };
