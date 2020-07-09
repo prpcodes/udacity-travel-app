@@ -86,6 +86,9 @@ input {
   font-family: "Oswald", sans-serif;
   border-radius: 8px;
   border: 1.5px solid black;
+  :placeholder-shown {
+    color: black;
+  }
 }
 
 #zip {
@@ -124,19 +127,19 @@ button {
 /* Style for Placeholder Text*/
 ::placeholder {
   /* Firefox, Chrome, Opera */
-  color: white;
+  color: black;
   font-family: "Oswald", sans-serif;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: white;
+  color: black;
   font-family: "Oswald", sans-serif;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: white;
+  color: black;
   font-family: "Oswald", sans-serif;
 }
 
