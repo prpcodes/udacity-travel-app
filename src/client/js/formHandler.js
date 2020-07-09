@@ -8,6 +8,8 @@ function formHandler() {
   let cityName = document.getElementById("zip").value;
   let departure = document.getElementById("date").value;
 
+  //CREDIT for the countdown:
+  //https://www.w3schools.com/howto/howto_js_countdown.asp
   let countDownDate = Date.parse(departure);
   // Get today's date and time
   let now = new Date().getTime();
