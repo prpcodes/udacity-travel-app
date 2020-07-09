@@ -30,12 +30,10 @@ module.exports = {
       filename: "./index.html",
       title: "Progressive Web Application",
     }),
-    /*
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
     }),
-    */
     new CleanWebpackPlugin({
       // Simulate the removal of files
       dry: true,
