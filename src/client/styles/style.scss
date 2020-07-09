@@ -22,107 +22,92 @@ h3 {
   color: black;
   justify-content: center;
   font-family: "Oswald", sans-serif;
-}
-
-.headline {
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50vw;
-  height: 100vh;
-}
-
-.interaction {
-  height: 100vh;
-  width: 50vw;
-}
-
-#entryHolder {
-  padding: 1rem;
-  height: 50vh;
-  p {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  #icon {
-    width: 2.5rem;
-  }
-  #city-image {
-    width: 50%;
-  }
-  #content {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: stretch;
-  }
-}
-
-.entry {
-  background: rgba(59, 74, 107, 0.4);
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label {
-  display: block;
-  font-size: 1.5rem;
-}
-
-input {
-  display: block;
-  height: 3rem;
-  width: 25rem;
-  background: #ffffffcc;
-  color: black;
-  border: 2px solid black;
-  font-size: 1.25rem;
-  font-family: "Oswald", sans-serif;
-  border-radius: 8px;
-  border: 1.5px solid black;
-  :placeholder-shown {
+  .headline {
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 100vh;
+  }
+  .interaction {
+    height: 100vh;
+    width: 50vw;
+    .form {
+      height: 100vh;
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      #zip {
+        margin-bottom: 1rem;
+      }
+      label {
+        display: block;
+        font-size: 1.5rem;
+      }
+      input {
+        display: block;
+        height: 3rem;
+        width: 25rem;
+        background: #ffffffcc;
+        color: black;
+        border: 2px solid black;
+        font-size: 1.25rem;
+        font-family: "Oswald", sans-serif;
+        border-radius: 8px;
+        border: 1.5px solid black;
+        :placeholder-shown {
+          color: black;
+        }
+      }
+      button {
+        margin-top: 1rem;
+        width: 8rem;
+        height: 3rem;
+        background: black;
+        color: white;
+        font-size: 1.25rem;
+        font-family: "Oswald", sans-serif;
+        border: none;
+        box-shadow: 2px 4px 5px #444;
+        border: 0;
+        border-radius: 8px;
+      }
+      #entryHolder {
+        padding: 1rem;
+        height: 50vh;
+        p {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-size: 1.5rem;
+          margin: 0;
+        }
+        #city-image {
+          width: 50%;
+        }
+        #content {
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: stretch;
+          #icon {
+            width: 2.5rem;
+          }
+          #content-text {
+            padding-right: 1rem;
+          }
+        }
+      }
+    }
   }
 }
-
-#zip {
-  margin-bottom: 1rem;
-}
-
-button {
-  margin-top: 1rem;
-  width: 8rem;
-  height: 3rem;
-  background: black;
-  color: white;
-  font-size: 1.25rem;
-  font-family: "Oswald", sans-serif;
-  border: none;
-  box-shadow: 2px 4px 5px #444;
-  border: 0;
-  border-radius: 8px;
-}
-
-.form {
-  height: 100vh;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-}
-
-#content-text {
-  padding-right: 1rem;
-}
-/* Reset style for HTML element on active to have no border*/
 
 /* Style for Placeholder Text*/
 ::placeholder {
@@ -147,19 +132,22 @@ button {
   body {
     #app {
       flex-direction: column;
+      .interaction {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+      }
+      .headline {
+        width: 100%;
+      }
+      #icon {
+        width: 2.5rem;
+      }
+      #content-text {
+        padding-right: 0;
+      }
     }
-  }
-  .interaction {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100vw;
-  }
-  .headline {
-    width: 100%;
-  }
-  #content-text {
-    padding-right: 0;
   }
 }
