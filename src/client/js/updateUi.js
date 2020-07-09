@@ -1,6 +1,8 @@
 const updateUi = (geoData) => {
+  //get the element with an ID of "title"
   const content = document.getElementById("title");
 
+  //put all the new HTML, with the data from geoData, below that fetched element
   content.insertAdjacentHTML(
     "afterend",
     `
